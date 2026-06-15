@@ -1,4 +1,4 @@
 package com.example.ims.Entities;
 
-public class BorderControllerOfficer {
+public class BorderControllerOfficer  extends  ImmigrationOfficer{
 }
