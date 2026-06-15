@@ -19,4 +19,12 @@ public class ErrorResponse {
     private String message;
     private String path;
 
+    public ErrorResponse(HttpStatus status, int statusCode, String error, String message, String path) {
+        this.status = status;
+        this.statusCode = statusCode;
+        this.error = error;
+        this.message = message;
+        this.path = path;
+    }
+
 }
