@@ -58,7 +58,7 @@ public class ApplicantService {
     }
 
     public Applicant flagCriminalRecord(Long applicantId) {
-        Applicant applicant = applicantRepository.findById(applicantId).orElseThrow(() -> new RuntimeException("Applicant not found with id: " + applicantId));
+        Applicant applicant = applicantRepository.findById(applicantId).orElseThrow(() -> ImsException.notFound("Applicant not found with id"));
 
         applicant.setCriminalRecord(true);
         applicantRepository.save(applicant);
