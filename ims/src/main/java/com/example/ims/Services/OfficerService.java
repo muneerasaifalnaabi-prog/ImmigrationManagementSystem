@@ -42,6 +42,13 @@ public class OfficerService {
         return officerRepository.findByRanks(rank);
     }
 
+    public List<ImmigrationOfficer> findOfficersByRank(String rank, int  minimumClearanceLevel){
+        if (minimumClearanceLevel <1 || minimumClearanceLevel >5){
+            throw ImsException.badRequest("Clearance level must be between 1 and 5");
+
+        }
+    }
+
 
 
 

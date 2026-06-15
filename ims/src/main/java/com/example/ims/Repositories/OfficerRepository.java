@@ -21,5 +21,3 @@ public interface OfficerRepository extends JpaRepository<ImmigrationOfficer, Lon
     List<ImmigrationOfficer> findOfficersByRankAndClearanceLevel(@Param("rank") String rank, @Param("minimumClearanceLevel") int minimumClearanceLevel);
 }
 
-
-}
