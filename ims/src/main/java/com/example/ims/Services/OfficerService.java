@@ -1,5 +1,6 @@
 package com.example.ims.Services;
 
+import com.example.ims.Entities.ImmigrationCenter;
 import com.example.ims.Entities.ImmigrationOfficer;
 import com.example.ims.Exceptions.ImsException;
 import com.example.ims.Repositories.CenterRepository;
@@ -26,7 +27,13 @@ public class OfficerService {
         return officerRepository.save(officer);
 
     }
+
     public ImmigrationOfficer transferOfficer(Long officerId, Long newCenterId) {
+        ImmigrationOfficer officer = officerRepository.findById(officerId).orElseThrow(() -> ImsException.badRequest("Officer not found"));
+        ImmigrationCenter center = centerRepository.findById(newCenterId).orElseThrow(() -> ImsException.notFound("Center not found"));
+
+        officer.setCenter(center);
+        return officerRepository.save(officer);
 
     }
 
