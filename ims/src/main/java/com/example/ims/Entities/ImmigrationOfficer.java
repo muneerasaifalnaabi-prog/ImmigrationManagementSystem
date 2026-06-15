@@ -10,5 +10,11 @@ public class ImmigrationOfficer extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String badgeNumber;
+    private String rank;
+    private int clearancelevel;
+    private Boolean active;
+
+
 
 }
