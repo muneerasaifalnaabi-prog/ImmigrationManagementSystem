@@ -26,5 +26,9 @@ public class OfficerService {
         return officerRepository.save(officer);
 
     }
+    public ImmigrationOfficer transferOfficer(Long officerId, Long newCenterId) {
 
     }
+
+
+}
