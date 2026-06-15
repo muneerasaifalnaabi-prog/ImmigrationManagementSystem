@@ -17,14 +17,13 @@ public class ImmigrationOfficer extends Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String badgeNumber;
-    private String rank;
+    private String ranks;
     private int clearancelevel;
     private Boolean active;
-    @ManyToAny
-    Center center;
+    @ManyToOne
+   private ImmigrationCenter center;
     @OneToMany
-    List<Interview> interviews;
-
+   private List<Interview> interviews;
 
 
 }
