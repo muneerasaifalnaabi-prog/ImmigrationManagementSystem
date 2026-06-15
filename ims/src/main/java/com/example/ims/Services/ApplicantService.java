@@ -2,6 +2,7 @@ package com.example.ims.Services;
 
 import com.example.ims.Entities.Applicant;
 import com.example.ims.Entities.Interview;
+import com.example.ims.Exceptions.ImsException;
 import com.example.ims.Repositories.ApplicantRepository;
 import com.example.ims.Repositories.InterviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +19,15 @@ public class ApplicantService {
 
     public Applicant addApplicant(Applicant applicant) {
         if (applicant.getFirstName().isBlank()) {
-            throw new RuntimeException("First name is required");
+            throw ImsException.badRequest("First name is required");
         }
 
         if (applicant.getLastName().isBlank()) {
-            throw new RuntimeException("Last name is required");
+            throw ImsException.badRequest("Last name is required");
         }
 
         if (applicant.getPassportNumber().isBlank()) {
-            throw new RuntimeException("Passport number is required");
+            throw ImsException.badRequest("Passport number is required");
         }
 
         return applicantRepository.save(applicant);
@@ -34,16 +35,16 @@ public class ApplicantService {
 
     public Applicant addApplicant(String firstName, String lastName, String passportNumber, String nationality) {
         if (firstName.isBlank()) {
-            throw new RuntimeException("First name is required.");
+            throw ImsException.badRequest("First name is required.");
         }
         if (lastName.isBlank()) {
-            throw new RuntimeException("Last name is required.");
+            throw ImsException.badRequest("Last name is required.");
         }
         if (passportNumber.isBlank()) {
-            throw new RuntimeException("Passport number is required.");
+            throw ImsException.badRequest("Passport number is required.");
         }
         if (applicantRepository.findByPassportNumber(passportNumber).equals(passportNumber)) {
-            throw new RuntimeException("An applicant with passport number '" + passportNumber + "' already exists.");
+            throw ImsException.badRequest("An applicant with passport number '" + passportNumber + "' already exists.");
 
         }
 
