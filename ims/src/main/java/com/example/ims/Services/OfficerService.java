@@ -5,7 +5,6 @@ import com.example.ims.Entities.ImmigrationOfficer;
 import com.example.ims.Exceptions.ImsException;
 import com.example.ims.Repositories.CenterRepository;
 import com.example.ims.Repositories.OfficerRepository;
-import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,19 +37,16 @@ public class OfficerService {
         return officerRepository.save(officer);
 
     }
+
     public List<ImmigrationOfficer> findOfficersByRank(String rank) {
         return officerRepository.findByRanks(rank);
     }
 
-    public List<ImmigrationOfficer> findOfficersByRank(String rank, int  minimumClearanceLevel){
-        if (minimumClearanceLevel <1 || minimumClearanceLevel >5){
+    public List<ImmigrationOfficer> findOfficersByRank(String rank, int minimumClearanceLevel) {
+        if (minimumClearanceLevel < 1 || minimumClearanceLevel > 5) {
             throw ImsException.badRequest("Clearance level must be between 1 and 5");
-
         }
+        return officerRepository.findOfficersByRankAndClearanceLevel(rank, minimumClearanceLevel);
     }
-
-
-
-
 
 }
