@@ -8,6 +8,7 @@ import java.util.List;
 
 @Repository
 public interface ApplicantRepository extends JpaRepository<Applicant, Long> {
+
     List<Applicant> findByNationality(String nationality);
 
     Applicant findByPassportNumber(String passportNumber);
