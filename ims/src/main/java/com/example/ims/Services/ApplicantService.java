@@ -17,13 +17,14 @@ public class ApplicantService {
     @Autowired
     InterviewRepository interviewRepository;
 
-    public Applicant addApplicant(Applicant applicant) {
+    public Applicant saveApplicant(Applicant applicant) {
         if (applicant.getFirstName().isBlank()) {
             throw ImsException.badRequest("First name is required");
+
         }
 
         if (applicant.getLastName().isBlank()) {
-            throw ImsException.badRequest("Last name is required");
+            throw  ImsException.badRequest("Last name is required");
         }
 
         if (applicant.getPassportNumber().isBlank()) {
@@ -33,7 +34,7 @@ public class ApplicantService {
         return applicantRepository.save(applicant);
     }
 
-    public Applicant addApplicant(String firstName, String lastName, String passportNumber, String nationality) {
+    public Applicant saveApplicant(String firstName, String lastName, String passportNumber, String nationality) {
         if (firstName.isBlank()) {
             throw ImsException.badRequest("First name is required.");
         }
