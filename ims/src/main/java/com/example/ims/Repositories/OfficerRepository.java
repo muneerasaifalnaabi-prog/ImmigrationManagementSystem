@@ -13,6 +13,7 @@ public interface OfficerRepository extends JpaRepository<ImmigrationOfficer, Lon
     List<ImmigrationOfficer> findByRanks(String ranks);
 
     List<ImmigrationOfficer> findByActive(boolean active);
+    List<ImmigrationOfficer> findByCenterId(Long centerId);
 
 
 }
