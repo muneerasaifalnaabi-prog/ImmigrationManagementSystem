@@ -9,6 +9,8 @@ import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OfficerService {
     @Autowired
@@ -36,6 +38,12 @@ public class OfficerService {
         return officerRepository.save(officer);
 
     }
+    public List<ImmigrationOfficer> findOfficersByRank(String rank) {
+        return officerRepository.findByRanks(rank);
+    }
+
+
+
 
 
 }
