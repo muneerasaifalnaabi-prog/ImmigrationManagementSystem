@@ -1,4 +1,4 @@
 package com.example.ims.Entities;
 
-public class AsylumSeeker {
+public class AsylumSeeker  extends Applicant{
 }
