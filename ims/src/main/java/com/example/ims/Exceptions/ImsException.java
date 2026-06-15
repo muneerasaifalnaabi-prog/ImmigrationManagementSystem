@@ -12,4 +12,10 @@ public class ImsException extends RuntimeException {
     public static ImsException notFound(String message) {
         return new ImsException(HttpStatus.NOT_FOUND, message);
     }
+    public static ImsException badRequest(String message) {
+        return new ImsException(HttpStatus.BAD_REQUEST, message);
+    }
+    public HttpStatus getStatus() {
+        return status;
+    }
 }
