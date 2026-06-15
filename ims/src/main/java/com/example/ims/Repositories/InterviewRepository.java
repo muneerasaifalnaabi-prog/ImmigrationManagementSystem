@@ -4,6 +4,12 @@ import com.example.ims.Entities.Interview;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-public interface InterviewRepository extends JpaRepository<Interview,Long> {
+public interface InterviewRepository extends JpaRepository<Interview, Long> {
+    List<Interview> findByOfficer_IdAndInterviewDate(
+            Long officerId,
+            String interviewDate);
+
 }
