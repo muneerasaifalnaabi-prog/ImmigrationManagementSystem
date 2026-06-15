@@ -1,4 +1,4 @@
-package com.example.ims.Servies;
+package com.example.ims.Services;
 
 import com.example.ims.Entities.Applicant;
 import com.example.ims.Entities.Interview;

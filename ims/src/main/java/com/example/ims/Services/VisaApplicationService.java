@@ -1,4 +1,4 @@
-package com.example.ims.Servies;
+package com.example.ims.Services;
 
 public class VisaApplicationService {
 }
