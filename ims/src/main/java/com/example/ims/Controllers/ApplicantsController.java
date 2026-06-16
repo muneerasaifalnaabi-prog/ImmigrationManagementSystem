@@ -5,6 +5,7 @@ import com.example.ims.Entities.AsylumSeeker;
 import com.example.ims.Exceptions.ImsException;
 import com.example.ims.Services.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,9 +31,11 @@ public class ApplicantsController {
         }
         return applicantService.saveApplicant(seeker);
     }
-    @GetMapping()
-    public Re
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Applicant>> findByNationality(@RequestParam String nationality) {
+        return ResponseEntity.ok(applicantService.findByNationality(nationality));
+    }
 
 
 }

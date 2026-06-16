@@ -24,7 +24,7 @@ public class ApplicantService {
         }
 
         if (applicant.getLastName().isBlank()) {
-            throw  ImsException.badRequest("Last name is required");
+            throw ImsException.badRequest("Last name is required");
         }
 
         if (applicant.getPassportNumber().isBlank()) {
@@ -74,15 +74,12 @@ public class ApplicantService {
 
         return applicant;
     }
-    
-    public List<Applicant> getAllApplicant(){
+
+    public List<Applicant> getAllApplicant() {
         return applicantRepository.findAll();
     }
 
-    public List<Applicant> findByNationality(String nationality){
+    public List<Applicant> findByNationality(String nationality) {
         return applicantRepository.findByNationality(nationality);
     }
-
-    
-
 }
