@@ -1,12 +1,10 @@
 package com.example.ims.Controllers;
 
-import com.example.ims.DTOs.ApplicantDTO;
 import com.example.ims.Entities.Applicant;
 import com.example.ims.Entities.AsylumSeeker;
 import com.example.ims.Exceptions.ImsException;
 import com.example.ims.Services.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
