@@ -41,9 +41,4 @@ public class OfficersController {
 
         return ResponseEntity.ok(ImmigrationOfficerDTO.convertToDTO(officerService.transferOfficer(id, centerId)));
     }
-
-
-
-
-
 }
