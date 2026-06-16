@@ -2,7 +2,6 @@ package com.example.ims.DTOs;
 
 
 import com.example.ims.Entities.Applicant;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,7 +10,6 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class ApplicantDTO {
     private Long id;
     private String firstName;
