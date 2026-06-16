@@ -20,6 +20,10 @@ public class ApplicantDTO {
     public static ApplicantDTO  convertToDTO(Applicant entity){
         ApplicantDTO dto = new ApplicantDTO();
         dto.setId(entity.getId());
+        dto.setFirstName(entity.getFirstName());
+        dto.setLastName(entity.getLastName());
+        dto.setPassportNumber(entity.getPassportNumber());
+
 
     }
 }
