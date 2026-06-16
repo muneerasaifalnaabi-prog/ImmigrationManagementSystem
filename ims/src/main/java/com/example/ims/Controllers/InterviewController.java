@@ -20,17 +20,20 @@ public class InterviewController {
         return ResponseEntity.ok(InterviewDTO.convertToDTO(interviewService.scheduleInterview(applicantId, officerId, date)));
 
     }
+
     @PutMapping("/{id}/complete")
     public ResponseEntity<InterviewDTO> completeInterview(@PathVariable Long id) {
         return ResponseEntity.ok(InterviewDTO.convertToDTO(interviewService.completeInterview(id)));
     }
+
     @PutMapping("/{id}/cancel")
     public ResponseEntity<InterviewDTO> cancelInterview(@PathVariable Long id) {
         return ResponseEntity.ok(InterviewDTO.convertToDTO(interviewService.cancelInterview(id)));
     }
+
     @GetMapping("/officer/{officerId}/date/{date}")
     public ResponseEntity<List<InterviewDTO>> getOfficerSchedule(@PathVariable Long officerId, @PathVariable String date) {
-        return ResponseEntity.ok(interviewService.getOfficerSchedule(officerId, date));
+        return ResponseEntity.ok(InterviewDTO.convertToDTO(interviewService.getOfficerSchedule(officerId, date)));
     }
 
 }
