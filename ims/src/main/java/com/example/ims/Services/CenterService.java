@@ -24,6 +24,9 @@ public class CenterService {
     }
 
     public ImmigrationCenter getCenterById(Long id) {
-        return centerRepository.findById(id).orElseThrow(() -> ImsException.notFound("Center not found"));
+        if (id == null) {
+            throw ImsException.badRequest("Center id is required");
+        }
+        return centerRepository.getCenterById(id) ;
     }
 }
