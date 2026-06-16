@@ -49,11 +49,78 @@ public class OfficerService {
         }
         return officerRepository.findOfficersByRankAndClearanceLevel(rank, minimumClearanceLevel);
     }
-    public ImmigrationOfficer saveBorderOfficer(BorderControllerOfficer officer){
-        if (officer==null){
-            throw ImsException.notFound("Border Officer Not Found ");
+
+    public ImmigrationOfficer saveOfficer(ImmigrationOfficer officer) {
+
+        if (officer == null) {
+            throw ImsException.badRequest("Officer data cannot be null");
         }
+
+        if (officer.getFirstName() == null || officer.getFirstName().isBlank()) {
+
+            throw ImsException.badRequest("First name is required");
+        }
+
+        if (officer.getLastName() == null || officer.getLastName().isBlank()) {
+
+            throw ImsException.badRequest("Last name is required");
+        }
+
+        if (officer.getBadgeNumber() == null || officer.getBadgeNumber().isBlank()) {
+
+            throw ImsException.badRequest("Badge number is required");
+        }
+
+        if (officer.getRanks() == null || officer.getRanks().isBlank()) {
+
+            throw ImsException.badRequest("Rank is required");
+        }
+
+        if (officer.getClearancelevel() < 1 || officer.getClearancelevel() > 5) {
+
+            throw ImsException.badRequest("Clearance level must be between 1 and 5");
+        }
+
         return officerRepository.save(officer);
     }
+
+    public BorderControllerOfficer saveBorderOfficer(BorderControllerOfficer officer) {
+
+        if (officer == null) {
+            throw ImsException.badRequest("Officer data cannot be null");
+        }
+
+        if (officer.getFirstName() == null || officer.getFirstName().isBlank()) {
+            throw ImsException.badRequest("First name is required");
+        }
+
+        if (officer.getLastName() == null || officer.getLastName().isBlank()) {
+
+            throw ImsException.badRequest("Last name is required");
+        }
+
+        if (officer.getBadgeNumber() == null || officer.getBadgeNumber().isBlank()) {
+
+            throw ImsException.badRequest("Badge number is required");
+        }
+
+        if (officer.getRanks() == null || officer.getRanks().isBlank()) {
+
+            throw ImsException.badRequest("Rank is required");
+        }
+
+        if (officer.getAssignedCheckpoint() == null || officer.getAssignedCheckpoint().isBlank()) {
+
+            throw ImsException.badRequest("Assigned checkpoint is required");
+        }
+
+        if (officer.getClearancelevel() < 1 || officer.getClearancelevel() > 5) {
+
+            throw ImsException.badRequest("Clearance level must be between 1 and 5");
+        }
+
+        return officerRepository.save(officer);
+    }
+
 
 }
