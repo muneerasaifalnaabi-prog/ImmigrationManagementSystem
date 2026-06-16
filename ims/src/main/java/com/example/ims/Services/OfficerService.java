@@ -1,5 +1,6 @@
 package com.example.ims.Services;
 
+import com.example.ims.Entities.BorderControllerOfficer;
 import com.example.ims.Entities.ImmigrationCenter;
 import com.example.ims.Entities.ImmigrationOfficer;
 import com.example.ims.Exceptions.ImsException;
@@ -47,6 +48,12 @@ public class OfficerService {
             throw ImsException.badRequest("Clearance level must be between 1 and 5");
         }
         return officerRepository.findOfficersByRankAndClearanceLevel(rank, minimumClearanceLevel);
+    }
+    public ImmigrationOfficer saveBorderOfficer(BorderControllerOfficer officer){
+        if (officer==null){
+            throw ImsException.notFound("Border Officer Not Found ");
+        }
+        return officerRepository.save(officer);
     }
 
 }
