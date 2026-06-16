@@ -23,6 +23,7 @@ public class InterviewService {
     OfficerRepository officerRepository;
 
     public Interview scheduleInterview(Long applicantId, Long officerId, String date) {
+
         Applicant applicant = applicantRepository.findById(applicantId).orElseThrow(() -> ImsException.notFound("Applicant not found"));
         ImmigrationOfficer officer = officerRepository.findById(officerId).orElseThrow(() -> ImsException.notFound("Officer not found"));
         List<Interview> existingInterviews = interviewRepository.findByOfficerIdAndInterviewDate(officerId, date);
@@ -33,10 +34,12 @@ public class InterviewService {
         interview.setApplicant(applicant);
         interview.setOfficer(officer);
         interview.setInterviewDate(date);
-
-
-
+        return interviewRepository.save(interview);
     }
+   public Interview completeInterview(Long interviewId){
+
+   }
+
 
 
 

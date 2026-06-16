@@ -19,7 +19,8 @@ public class ImsException extends RuntimeException {
     }
 
 
-    public HttpStatus getStatus() {
+    public HttpStatus getStatus()
+    {
         return status;
     }
 }
