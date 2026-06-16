@@ -25,8 +25,9 @@ public class ApplicantsController {
         }
         return applicantService.saveApplicant(applicant);
     }
+
     @PostMapping("asylum")
-    public Applicant addAsylum(@RequestBody AsylumSeeker  asylumSeeker) {
+    public Applicant addAsylum(@RequestBody AsylumSeeker asylumSeeker) {
         if (asylumSeeker == null) {
             throw ImsException.badRequest("applicant is null");
         }
