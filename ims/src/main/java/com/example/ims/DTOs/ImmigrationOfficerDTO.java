@@ -5,6 +5,9 @@ import com.example.ims.Entities.ImmigrationOfficer;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 public class ImmigrationOfficerDTO {
@@ -30,6 +33,12 @@ public class ImmigrationOfficerDTO {
         return dto;
     }
 
+    public static List<ImmigrationOfficerDTO> convertToDTO(List<ImmigrationOfficer> entities) {
 
-
+        List<ImmigrationOfficerDTO> dtos = new ArrayList<>();
+        for (ImmigrationOfficer entity : entities) {
+            dtos.add(convertToDTO(entity));
+        }
+        return dtos;
+    }
 }
