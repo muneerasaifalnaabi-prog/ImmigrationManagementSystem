@@ -25,8 +25,8 @@ public class OfficersController {
         return officerService.saveBorderOfficer(officer);
     }
 
-
-
-
+    public OfficerService getOfficerService() {
+        return officerService;
+    }
 
 }

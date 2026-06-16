@@ -121,6 +121,12 @@ public class OfficerService {
 
         return officerRepository.save(officer);
     }
+    public ImmigrationOfficer getOfficerById(Long id){
+        if(id == null){
+            throw ImsException.badRequest("Officer id is required");}
+
+        return officerRepository.findById(id).orElseThrow(() -> ImsException.notFound("Officer not found"));
+    }
 
 
 }
