@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +20,7 @@ public class ApplicantDTO {
     private String nationality;
     private Boolean criminalRecord;
 
-    public static ApplicantDTO  convertToDTO(Applicant entity){
+    public static ApplicantDTO convertToDTO(Applicant entity) {
         ApplicantDTO dto = new ApplicantDTO();
         dto.setId(entity.getId());
         dto.setFirstName(entity.getFirstName());
@@ -27,5 +30,18 @@ public class ApplicantDTO {
         dto.setCriminalRecord(entity.getCriminalRecord());
         return dto;
     }
+
+    public static List<ApplicantDTO> convertToDTO(
+            List<Applicant> entities) {
+
+        List<ApplicantDTO> dtos = new ArrayList<>();
+
+        for (Applicant entity : entities) {
+            dtos.add(convertToDTO(entity));
+        }
+
+        return dtos;
+    }
+
 }
 
