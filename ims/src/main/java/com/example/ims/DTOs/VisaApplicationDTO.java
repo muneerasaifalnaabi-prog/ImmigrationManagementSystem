@@ -13,6 +13,9 @@ public class VisaApplicationDTO {
 
     public static VisaApplicationDTO convertToDTO(VisaApplications entity){
         VisaApplicationDTO dto = new VisaApplicationDTO();
+        dto.setId(entity.getId());
+        dto.setVisaType(entity.getVisaType());
+        dto.setStatus(entity.getStatus());
 
     }
 
