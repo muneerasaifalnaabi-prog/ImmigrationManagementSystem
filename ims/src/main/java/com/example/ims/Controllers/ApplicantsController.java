@@ -17,7 +17,7 @@ public class ApplicantsController {
     @Autowired
     ApplicantService applicantService;
 
-    @PostMapping("/add")
+    @PostMapping()
     public Applicant addApplicant(@RequestBody Applicant applicant) {
         if (applicant == null) {
             throw ImsException.badRequest("applicant is null");
@@ -25,4 +25,5 @@ public class ApplicantsController {
         return applicantService.saveApplicant(applicant);
 
     }
+
 }

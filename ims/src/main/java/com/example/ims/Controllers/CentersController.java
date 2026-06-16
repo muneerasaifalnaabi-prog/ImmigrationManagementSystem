@@ -14,7 +14,7 @@ public class CentersController {
     @Autowired
     CenterService centerService;
 
-    @PostMapping("/add")
+    @PostMapping()
     public ImmigrationCenter addCenter(@RequestBody ImmigrationCenter center) {
         if (center == null) {
             throw ImsException.badRequest("center is null");
