@@ -14,4 +14,5 @@ public interface VisaApplicationRepository extends JpaRepository<VisaApplication
     List<VisaApplications> findByHandlingOfficerId(Long officerId);
 
 
+
 }
