@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("interviews")
 public class InterviewController {
@@ -24,8 +26,11 @@ public class InterviewController {
     }
     @PutMapping("/{id}/cancel")
     public ResponseEntity<InterviewDTO> cancelInterview(@PathVariable Long id) {
-        return ResponseEntity.ok(InterviewDTO.convertToDTO(interviewService.cancelInterview(id))
-        );
+        return ResponseEntity.ok(InterviewDTO.convertToDTO(interviewService.cancelInterview(id)));
+    }
+    @GetMapping("/officer/{officerId}/date/{date}")
+    public ResponseEntity<List<InterviewDTO>> getOfficerSchedule(@PathVariable Long officerId, @PathVariable String date) {
+        return ResponseEntity.ok(interviewService.getOfficerSchedule(officerId, date));
     }
 
 }

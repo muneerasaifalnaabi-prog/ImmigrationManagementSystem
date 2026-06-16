@@ -1,5 +1,6 @@
 package com.example.ims.Services;
 
+import com.example.ims.DTOs.InterviewDTO;
 import com.example.ims.Entities.Applicant;
 import com.example.ims.Entities.ImmigrationOfficer;
 import com.example.ims.Entities.Interview;
@@ -49,5 +50,10 @@ public class InterviewService {
         interview.setStatus("CANCELLED");
         return interviewRepository.save(interview);
 
+    }
+
+    public List<InterviewDTO> getOfficerSchedule(Long officerId, String date) {
+
+        return
     }
 }
