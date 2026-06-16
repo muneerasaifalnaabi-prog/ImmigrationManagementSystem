@@ -5,10 +5,9 @@ import com.example.ims.Entities.AsylumSeeker;
 import com.example.ims.Exceptions.ImsException;
 import com.example.ims.Services.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("applicants")
@@ -25,13 +24,15 @@ public class ApplicantsController {
     }
 
     @PostMapping("asylum")
-    public Applicant addAsylum(@RequestBody AsylumSeeker asylumSeeker) {
-        if (asylumSeeker == null) {
+    public Applicant addAsylum(@RequestBody AsylumSeeker seeker) {
+        if (seeker == null) {
             throw ImsException.badRequest("applicant is null");
         }
-        return applicantService.saveApplicant(asylumSeeker);
-
+        return applicantService.saveApplicant(seeker);
     }
+    @GetMapping()
+    public Re
+
 
 
 }
