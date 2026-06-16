@@ -2,6 +2,7 @@ package com.example.ims.Controllers;
 
 import com.example.ims.DTOs.ApplicantDTO;
 import com.example.ims.Entities.Applicant;
+import com.example.ims.Entities.AsylumSeeker;
 import com.example.ims.Exceptions.ImsException;
 import com.example.ims.Services.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,15 @@ public class ApplicantsController {
             throw ImsException.badRequest("applicant is null");
         }
         return applicantService.saveApplicant(applicant);
+    }
+    @PostMapping("asylum")
+    public Applicant addAsylum(@RequestBody AsylumSeeker  asylumSeeker) {
+        if (asylumSeeker == null) {
+            throw ImsException.badRequest("applicant is null");
+        }
+        return applicantService.saveApplicant(asylumSeeker);
 
     }
+
 
 }

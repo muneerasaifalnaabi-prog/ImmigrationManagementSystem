@@ -27,4 +27,5 @@ public class CentersController {
         return ResponseEntity.ok(CenterDTO.convertToDTO(centerService.getCenterById(id)));
     }
 
+
 }
