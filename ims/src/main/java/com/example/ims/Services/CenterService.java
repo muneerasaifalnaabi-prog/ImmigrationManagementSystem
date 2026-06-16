@@ -14,9 +14,7 @@ public class CenterService {
 
         if (center.getName() == null ||
                 center.getName().isBlank()) {
-
-            throw ImsException.badRequest(
-                    "Center name is required");
+            throw ImsException.badRequest("Center name is required");
         }
 
         return centerRepository.save(center);
