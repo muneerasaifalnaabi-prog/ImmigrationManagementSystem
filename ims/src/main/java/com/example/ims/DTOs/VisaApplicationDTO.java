@@ -1,10 +1,9 @@
 package com.example.ims.DTOs;
 
-import com.example.ims.Entities.ImmigrationOfficer;
+
 import com.example.ims.Entities.VisaApplications;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +31,8 @@ public class VisaApplicationDTO {
         }
         return dtos;
     }
+
+
 }
 
 
