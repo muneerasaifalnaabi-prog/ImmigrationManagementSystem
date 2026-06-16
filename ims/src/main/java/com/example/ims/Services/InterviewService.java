@@ -30,6 +30,8 @@ public class InterviewService {
             throw ImsException.badRequest("Officer is double-booked!");
         }
         Interview interview = new Interview();
+        interview.setApplicant(applicant);
+
 
     }
 
