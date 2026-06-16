@@ -1,5 +1,6 @@
 package com.example.ims.Controllers;
 
+import com.example.ims.DTOs.ApplicantDTO;
 import com.example.ims.Entities.Applicant;
 import com.example.ims.Entities.AsylumSeeker;
 import com.example.ims.Exceptions.ImsException;
@@ -32,9 +33,20 @@ public class ApplicantsController {
         return applicantService.saveApplicant(seeker);
     }
 
+    @GetMapping()
+    public ResponseEntity<List<ApplicantDTO>> getAllApplicants() {
+        return ResponseEntity.ok(ApplicantDTO.convertToDTO(applicantService.getAllApplicant()));
+    }
+
     @GetMapping("/search")
-    public ResponseEntity<List<Applicant>> findByNationality(@RequestParam String nationality) {
-        return ResponseEntity.ok(applicantService.findByNationality(nationality));
+    public ResponseEntity<List<ApplicantDTO>> findByNationality(@RequestParam String nationality) {
+        return ResponseEntity.ok(ApplicantDTO.convertToDTO(applicantService.findByNationality(nationality)));
+    }
+
+    @PutMapping("/{id}/flag")
+    public ResponseEntity<ApplicantDTO> flagCriminalRecord(@PathVariable Long id) {
+        Applicant applicant = applicantService.flagCriminalRecord(id);
+        return ResponseEntity.ok(ApplicantDTO.convertToDTO(applicant));
     }
 
 
