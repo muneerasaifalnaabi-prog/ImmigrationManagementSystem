@@ -37,6 +37,9 @@ public class InterviewService {
         return interviewRepository.save(interview);
     }
    public Interview completeInterview(Long interviewId){
+        Interview interview=interviewRepository.findById(interviewId).orElseThrow(()->ImsException.notFound("Interview Not Found"));
+        interview.setStatus("COMPLETED");
+        interviewRepository.save(interview);
 
    }
 
