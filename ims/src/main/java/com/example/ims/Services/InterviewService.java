@@ -31,6 +31,9 @@ public class InterviewService {
         }
         Interview interview = new Interview();
         interview.setApplicant(applicant);
+        interview.setOfficer(officer);
+        interview.setInterviewDate(date);
+
 
 
     }
