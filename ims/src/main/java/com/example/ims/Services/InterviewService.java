@@ -54,6 +54,6 @@ public class InterviewService {
 
     public List<Interview> getOfficerSchedule(Long officerId, String date) {
         officerRepository.findById(officerId).orElseThrow(() -> ImsException.notFound("Officer Id  not found"));
-        return interviewRepository.getOfficerSchedule(officerId,date);
+        return interviewRepository.getOfficerSchedule(officerId, date);
     }
 }
