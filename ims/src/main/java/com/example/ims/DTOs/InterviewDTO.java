@@ -4,6 +4,9 @@ import com.example.ims.Entities.Interview;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 public class InterviewDTO {
@@ -13,7 +16,6 @@ public class InterviewDTO {
     private String purpose;
 
     public static InterviewDTO convertToDTO(Interview entity) {
-
         InterviewDTO dto = new InterviewDTO();
 
         dto.setId(entity.getId());
@@ -21,6 +23,15 @@ public class InterviewDTO {
         dto.setStatus(entity.getStatus());
         dto.setPurpose(entity.getPurpose());
         return dto;
+    }
+
+    public static List<InterviewDTO> convertToDTO(List<Interview> entities) {
+
+        List<InterviewDTO> dtos = new ArrayList<>();
+        for (Interview entity : entities) {
+            dtos.add(convertToDTO(entity));
+        }
+        return dtos;
     }
 
 }
