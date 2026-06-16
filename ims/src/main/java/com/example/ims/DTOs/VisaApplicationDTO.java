@@ -1,0 +1,4 @@
+package com.example.ims.DTOs;
+
+public class VisaApplicationDTO {
+}
