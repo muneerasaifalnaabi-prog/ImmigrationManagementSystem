@@ -21,8 +21,7 @@ public class CentersController {
 
         ImmigrationCenter savedCenter = centerService.saveCenter(center);
 
-        return ResponseEntity.ok(
-                CenterDTO.convertToDTO(savedCenter));
+        return ResponseEntity.ok(CenterDTO.convertToDTO(savedCenter));
     }
 
 
