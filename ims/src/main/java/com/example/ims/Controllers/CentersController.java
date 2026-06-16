@@ -2,6 +2,7 @@ package com.example.ims.Controllers;
 
 import com.example.ims.DTOs.CenterDTO;
 import com.example.ims.Entities.ImmigrationCenter;
+import com.example.ims.Exceptions.ImsException;
 import com.example.ims.Services.CenterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,9 @@ public class CentersController {
 
     @PostMapping("/add")
     public ResponseEntity<CenterDTO> addCenter(@RequestBody ImmigrationCenter center) {
+        if (center == null) {
+            throw ImsException.badRequest("center is null");
+        }
         return ResponseEntity.ok(CenterDTO.convertToDTO(centerService.saveCenter(center)));
     }
 
