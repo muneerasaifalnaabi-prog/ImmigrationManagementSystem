@@ -14,8 +14,12 @@ public class InterviewController {
 
     @PostMapping("/schedule/{applicantId}/{officerId}")
     public ResponseEntity<Interview> scheduleInterview(@PathVariable Long applicantId, @PathVariable Long officerId, @RequestParam String date) {
-
         return ResponseEntity.ok(interviewService.scheduleInterview(applicantId, officerId, date));
 
     }
+    @PutMapping("/{id}/complete")
+    public ResponseEntity<Interview> completeInterview(@PathVariable Long id) {
+        return ResponseEntity.ok(interviewService.completeInterview(id));
+    }
+
 }
