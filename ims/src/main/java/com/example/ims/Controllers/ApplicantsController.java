@@ -17,11 +17,11 @@ public class ApplicantsController {
     ApplicantService  applicantService;
 
     @PostMapping("/add")
-    public ResponseEntity<ApplicantDTO> addApplicant(@RequestBody ApplicantDTO applicantDTO) {
-        if (applicantDTO == null) {
+    public ResponseEntity<ApplicantDTO> addApplicant(@RequestBody ApplicantDTO applicant) {
+        if (applicant == null) {
             throw ImsException.badRequest("applicant is null");
         }
-        return applicantService.saveApplicant(applicantDTO);
+        return applicantService.saveApplicant(applicant);
 ;
     }
 }

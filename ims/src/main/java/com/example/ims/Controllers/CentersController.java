@@ -15,11 +15,11 @@ public class CentersController {
     CenterService centerService;
 
     @PostMapping("/add")
-    public ResponseEntity<CenterDTO> addCenter(@RequestBody ImmigrationCenter center) {
+    public ImmigrationCenter addCenter(@RequestBody ImmigrationCenter center) {
         if (center == null) {
             throw ImsException.badRequest("center is null");
         }
-        return ResponseEntity.ok(CenterDTO.convertToDTO(centerService.saveCenter(center)));
+        return centerService.saveCenter(center);
     }
 
     @GetMapping("/{id}")
