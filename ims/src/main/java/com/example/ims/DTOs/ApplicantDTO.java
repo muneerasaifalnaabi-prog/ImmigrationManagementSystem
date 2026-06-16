@@ -23,6 +23,8 @@ public class ApplicantDTO {
         dto.setFirstName(entity.getFirstName());
         dto.setLastName(entity.getLastName());
         dto.setPassportNumber(entity.getPassportNumber());
+        dto.setNationality(entity.getNationality());
+        dto.setCriminalRecord(entity.getCriminalRecord());
 
 
     }
