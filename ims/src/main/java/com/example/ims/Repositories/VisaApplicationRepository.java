@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface VisaApplicationRepository extends JpaRepository<VisaApplications, Long> {
-    ResponseEntity<List<VisaApplicationDTO>> findByApplicantId(Long applicantId);
+    List<VisaApplications> findByApplicantId(Long applicantId);
     List<VisaApplications> findByStatus(String status);
     List<VisaApplications> findByApplicantIdAndVisaType(Long applicantId, String visaType);
     List<VisaApplications> findByHandlingOfficerId(Long officerId);

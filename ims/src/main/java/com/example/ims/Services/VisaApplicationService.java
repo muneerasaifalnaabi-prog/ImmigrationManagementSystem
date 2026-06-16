@@ -68,9 +68,9 @@ public class VisaApplicationService {
         return visaApplicationRepository.save(visa);
     }
 
-    public ResponseEntity<List<VisaApplicationDTO>> getVisasByApplicant(Long applicantId) {
+    public List<VisaApplications> getVisasByApplicant(Long applicantId) {
 
-        return ResponseEntity.ok(VisaApplicationDTO.convertToDTO(visaApplicationRepository.findByApplicantId(applicantId)));
+        return visaApplicationRepository.findByApplicantId(applicantId);
     }
 
     public List<VisaApplications> getVisasByStatus(String status) {
