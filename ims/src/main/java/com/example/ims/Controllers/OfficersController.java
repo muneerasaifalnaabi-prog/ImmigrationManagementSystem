@@ -1,5 +1,6 @@
 package com.example.ims.Controllers;
 
+import com.example.ims.Entities.BorderControllerOfficer;
 import com.example.ims.Entities.ImmigrationOfficer;
 import com.example.ims.Services.OfficerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,11 @@ public class OfficersController {
 
     @PostMapping()
     public ImmigrationOfficer addOfficers(@RequestBody ImmigrationOfficer officer){
-        return officerService
+        return officerService.saveOfficer(officer);
+    }
+    @PostMapping("/border")
+    public ImmigrationOfficer addBorderOfficer(@RequestBody BorderControllerOfficer officer){
+        return officerService.saveBorderOfficer(officer);
     }
 
 
