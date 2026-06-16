@@ -1,5 +1,6 @@
 package com.example.ims.Controllers;
 
+import com.example.ims.DTOs.InterviewDTO;
 import com.example.ims.Entities.Interview;
 import com.example.ims.Services.InterviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +14,18 @@ public class InterviewController {
     InterviewService interviewService;
 
     @PostMapping("/schedule/{applicantId}/{officerId}")
-    public ResponseEntity<Interview> scheduleInterview(@PathVariable Long applicantId, @PathVariable Long officerId, @RequestParam String date) {
-        return ResponseEntity.ok(interviewService.scheduleInterview(applicantId, officerId, date));
+    public ResponseEntity<InterviewDTO> scheduleInterview(@PathVariable Long applicantId, @PathVariable Long officerId, @RequestParam String date) {
+        return ResponseEntity.ok(InterviewDTO.convertToDTO(interviewService.scheduleInterview(applicantId, officerId, date)));
 
     }
     @PutMapping("/{id}/complete")
-    public ResponseEntity<Interview> completeInterview(@PathVariable Long id) {
-        return ResponseEntity.ok(interviewService.completeInterview(id));
+    public ResponseEntity<InterviewDTO> completeInterview(@PathVariable Long id) {
+        return ResponseEntity.ok(InterviewDTO.convertToDTO(interviewService.completeInterview(id)));
+    }
+    @PutMapping("/{id}/cancel")
+    public ResponseEntity<InterviewDTO> cancelInterview(@PathVariable Long id) {
+        return ResponseEntity.ok(InterviewDTO.convertToDTO(interviewService.cancelInterview(id))
+        );
     }
 
 }

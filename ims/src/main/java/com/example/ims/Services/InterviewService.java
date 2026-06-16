@@ -38,10 +38,16 @@ public class InterviewService {
     }
 
     public Interview completeInterview(Long interviewId) {
-        Interview interview = interviewRepository.findById(interviewId).orElseThrow(() -> ImsException.notFound("Interview Not Found"));
+        Interview interview = interviewRepository.findById(interviewId).orElseThrow(() -> ImsException.notFound("Interview Id Not Found"));
         interview.setStatus("COMPLETED");
         return interviewRepository.save(interview);
 
     }
 
+    public Interview cancelInterview(Long interviewId) {
+        Interview interview = interviewRepository.findById(interviewId).orElseThrow(() -> ImsException.notFound("Interview Id  Not Found"));
+        interview.setStatus("CANCELLED");
+        return interviewRepository.save(interview);
+
+    }
 }
