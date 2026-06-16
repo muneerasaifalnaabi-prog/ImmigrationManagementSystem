@@ -1,6 +1,7 @@
 package com.example.ims.Controllers;
 
 import com.example.ims.DTOs.ApplicantDTO;
+import com.example.ims.Entities.Applicant;
 import com.example.ims.Exceptions.ImsException;
 import com.example.ims.Services.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("applicants")
 public class ApplicantsController {
     @Autowired
-    ApplicantService  applicantService;
+    ApplicantService applicantService;
 
     @PostMapping("/add")
-    public ResponseEntity<ApplicantDTO> addApplicant(@RequestBody ApplicantDTO applicant) {
+    public Applicant addApplicant(@RequestBody Applicant applicant) {
         if (applicant == null) {
             throw ImsException.badRequest("applicant is null");
         }
         return applicantService.saveApplicant(applicant);
-;
+
     }
 }
