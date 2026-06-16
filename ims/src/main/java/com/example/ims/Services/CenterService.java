@@ -4,7 +4,9 @@ import com.example.ims.Entities.ImmigrationCenter;
 import com.example.ims.Exceptions.ImsException;
 import com.example.ims.Repositories.CenterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CenterService {
     @Autowired
     CenterRepository centerRepository;
