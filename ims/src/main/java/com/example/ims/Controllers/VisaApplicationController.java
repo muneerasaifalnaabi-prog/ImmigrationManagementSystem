@@ -29,20 +29,13 @@ public class VisaApplicationController {
         return visaApplicationService.processVisa(visaId, status, notes);
     }
     @GetMapping("/applicant/{applicantId}")
-    public ResponseEntity<List<VisaApplicationDTO>> getApplicantVisas(@PathVariable Long applicantId){
+    public ResponseEntity<VisaApplicationDTO>getApplicantVisas(@PathVariable Long applicantId){
 
-        return visaApplicationService.getVisasByApplicant(applicantId);
+        return  ResponseEntity.ok(VisaApplicationDTO.convertToDTO(visaApplicationService.getVisasByApplicant(applicantId)));
     }
+    @GetMapping("/status/{status}")
+    public ResponseEntity<List<VisaApplicationDTO>>getVisasByStatus(@PathVariable String status){
 
-
-
-
-
-
-
-
-
-
-
-
+        return  ResponseEntity.ok(VisaApplicationDTO.convertToDTO(visaApplicationService.getVisasByStatus(status)));
+    }
 }

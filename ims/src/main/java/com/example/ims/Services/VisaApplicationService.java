@@ -70,7 +70,7 @@ public class VisaApplicationService {
 
     public ResponseEntity<List<VisaApplicationDTO>> getVisasByApplicant(Long applicantId) {
 
-        return visaApplicationRepository.findByApplicantId(applicantId);
+        return ResponseEntity.ok(VisaApplicationDTO.convertToDTO(visaApplicationRepository.findByApplicantId(applicantId)));
     }
 
     public List<VisaApplications> getVisasByStatus(String status) {
