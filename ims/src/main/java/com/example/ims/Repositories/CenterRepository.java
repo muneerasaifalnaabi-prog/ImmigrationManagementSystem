@@ -10,12 +10,6 @@ import java.util.List;
 
 @Repository
 public interface CenterRepository extends JpaRepository<ImmigrationCenter, Long> {
-    ImmigrationCenter findByName(String name);
-
-    List<ImmigrationCenter> findByType(String type);
-
-    List<ImmigrationCenter> findByLocationCountry(String locationCountry);
-
     @Query("SELECT c FROM ImmigrationCenter c WHERE c.id = :id")
     ImmigrationCenter getCenterById(@Param("id") Long id);
 
