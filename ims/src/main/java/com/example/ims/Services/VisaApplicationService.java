@@ -1,6 +1,6 @@
 package com.example.ims.Services;
 
-import com.example.ims.DTOs.VisaApplicationDTO;
+
 import com.example.ims.Entities.Applicant;
 import com.example.ims.Entities.ImmigrationOfficer;
 import com.example.ims.Entities.VisaApplications;
