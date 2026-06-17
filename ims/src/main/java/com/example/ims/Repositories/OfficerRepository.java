@@ -10,12 +10,7 @@ import java.util.List;
 
 @Repository
 public interface OfficerRepository extends JpaRepository<ImmigrationOfficer, Long> {
-    ImmigrationOfficer findByBadgeNumber(String badgeNumber);
-
     List<ImmigrationOfficer> findByRanks(String ranks);
-
-    List<ImmigrationOfficer> findByActive(boolean active);
-    List<ImmigrationOfficer> findByCenterId(Long centerId);
 
     @Query(" SELECT o FROM ImmigrationOfficer o WHERE o.ranks = :rank AND o.clearancelevel >= :minimumClearanceLevel")
     List<ImmigrationOfficer> findOfficersByRankAndClearanceLevel(@Param("rank") String rank, @Param("minimumClearanceLevel") int minimumClearanceLevel);
