@@ -12,8 +12,6 @@ import java.util.List;
 public interface InterviewRepository extends JpaRepository<Interview, Long> {
     List<Interview> findByOfficerIdAndInterviewDate(Long officerId, String interviewDate);
     List<Interview> findByApplicantIdAndStatus(Long applicantId, String status);
-    List<Interview> findByApplicantId(Long applicantId);
-    List<Interview> findByOfficerId(Long officerId);
     @Query("select i from Interview i where i.officer.id = :officerId and i.interviewDate = :date")
     List<Interview> getOfficerSchedule(@Param("officerId") Long officerId, @Param("date") String date
     );
