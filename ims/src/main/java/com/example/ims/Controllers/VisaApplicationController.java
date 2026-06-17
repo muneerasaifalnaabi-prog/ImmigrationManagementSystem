@@ -38,4 +38,5 @@ public class VisaApplicationController {
 
         return  ResponseEntity.ok(VisaApplicationDTO.convertToDTO(visaApplicationService.getVisasByStatus(status)));
     }
+
 }

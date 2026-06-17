@@ -49,5 +49,14 @@ public class ApplicantsController {
         return ResponseEntity.ok(ApplicantDTO.convertToDTO(applicant));
     }
 
+    @PostMapping("/addSimple")
+    public ResponseEntity<ApplicantDTO> addApplicantSimple(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String passportNumber,@RequestParam String nationality) {
+        return ResponseEntity.ok(ApplicantDTO.convertToDTO(applicantService.saveApplicant(
+                                firstName,
+                                lastName,
+                                passportNumber,
+                                nationality)));
+    }
+
 
 }
