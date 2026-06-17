@@ -13,8 +13,4 @@ public interface VisaApplicationRepository extends JpaRepository<VisaApplication
     List<VisaApplications> findByApplicantId(Long applicantId);
     List<VisaApplications> findByStatus(String status);
     List<VisaApplications> findByApplicantIdAndVisaType(Long applicantId, String visaType);
-    List<VisaApplications> findByHandlingOfficerId(Long officerId);
-
-
-
 }
