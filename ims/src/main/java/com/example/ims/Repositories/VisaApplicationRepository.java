@@ -1,9 +1,7 @@
 package com.example.ims.Repositories;
 
-import com.example.ims.DTOs.VisaApplicationDTO;
 import com.example.ims.Entities.VisaApplications;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -13,9 +13,5 @@ public interface ApplicantRepository extends JpaRepository<Applicant, Long> {
 
     Applicant findByPassportNumber(String passportNumber);
 
-    List<Applicant> findByCriminalRecord(boolean criminalRecord);
 
-    List<Applicant> findByFirstName(String firstName);
-
-    List<Applicant> findByLastName(String lastName);
 }
