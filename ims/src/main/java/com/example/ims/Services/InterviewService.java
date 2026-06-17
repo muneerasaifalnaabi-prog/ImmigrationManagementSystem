@@ -1,12 +1,11 @@
 package com.example.ims.Services;
 
-import com.example.ims.DTOs.InterviewDTO;
+
 import com.example.ims.Entities.Applicant;
 import com.example.ims.Entities.ImmigrationOfficer;
 import com.example.ims.Entities.Interview;
 import com.example.ims.Exceptions.ImsException;
 import com.example.ims.Repositories.ApplicantRepository;
-import com.example.ims.Repositories.CenterRepository;
 import com.example.ims.Repositories.InterviewRepository;
 import com.example.ims.Repositories.OfficerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
